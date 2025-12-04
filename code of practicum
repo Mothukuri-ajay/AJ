@@ -23,3 +23,7 @@ public class CFGtoPDA {
  }
  public static void main(String[] args) {
  // Example CFG: S → aSb | ab
+addRule('S', "aSb");
+ addRule('S', "ab");
+ printTransitions();
+ }
