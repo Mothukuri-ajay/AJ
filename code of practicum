@@ -1,0 +1,25 @@
+import java.util.*;
+class Rule {
+ char lhs;
+ String rhs;
+ Rule(char lhs, String rhs) {
+ this.lhs = lhs;
+ this.rhs = rhs;
+ }
+}
+public class CFGtoPDA {
+ static List<Rule> rules = new ArrayList<>();
+ static void addRule(char lhs, String rhs) {
+ rules.add(new Rule(lhs, rhs));
+ }
+ static void printTransitions() {
+ System.out.println("PDA Transitions:");
+ for (Rule rule : rules) {
+ System.out.println("δ(q, ε, " + rule.lhs + ") = (q, " + rule.rhs + ")");
+ }
+ // Example for terminals 'a' and 'b'
+ System.out.println("δ(q, a, a) = (q, ε)");
+ System.out.println("δ(q, b, b) = (q, ε)");
+ }
+ public static void main(String[] args) {
+ // Example CFG: S → aSb | ab
